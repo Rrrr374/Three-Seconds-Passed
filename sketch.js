@@ -75,6 +75,25 @@ function draw() {
   }
 }
 
+function windowResized() {
+  let newHeight = windowWidth / canvasAspect; // Maintain the aspect ratio
+  resizeCanvas(windowWidth, newHeight);
+
+  // Recalculate the scaling factor
+  scaleFactor = min(windowWidth / baseWidth, windowHeight / baseHeight);
+
+  // Dynamically update icon positions and sizes
+  icons.forEach((icon) => {
+    let centerX = width / 2;
+    let centerY = height / 2;
+    let radius = min(width, height) * 0.35;
+    let angle = (TWO_PI / 15) * icon.id;
+    icon.x = centerX + radius * cos(angle);
+    icon.y = centerY + radius * sin(angle);
+    icon.size = 100 * scaleFactor; // Adjust size dynamically
+  });
+}
+
 // ICON SETUP
 function setupIcons() {
   icons = []; // Reset icons array
@@ -150,7 +169,7 @@ function drawLandingPage() {
   if (displayText) {
     fill(255); // White text
     textFont(customFont); // Use the custom font
-    textSize(20); // Adjust size as needed
+    textSize(16); // Adjust size as needed
     textAlign(CENTER, CENTER);
 
     // Determine which section's text to show based on the current backdrop
