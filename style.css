@@ -1,8 +1,12 @@
-html, body {
-    margin: 0;
-    padding: 0;
-  }
-  canvas {
-    display: block;
-  }
-  
+body {
+  margin: 0; /* Remove browser margins */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+canvas {
+  display: block; /* Avoid unnecessary spacing */
+}
