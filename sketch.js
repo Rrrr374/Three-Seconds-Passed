@@ -1,6 +1,7 @@
 // GLOBAL VARIABLES
 let canvasWidth = 1200;
 let canvasHeight = 849;
+let canvasAspect = canvasWidth / canvasHeight; // Define the canvas aspect ratio
 let scaleFactor;
 
 let icons = [];
@@ -68,22 +69,18 @@ function draw() {
 }
 
 function windowResized() {
-  let newHeight = windowWidth / canvasAspect; // Maintain the aspect ratio
-  resizeCanvas(windowWidth, newHeight);
+  let windowAspect = windowWidth / windowHeight;
 
-  // Recalculate the scaling factor
-  scaleFactor = min(windowWidth / baseWidth, windowHeight / baseHeight);
+  if (windowAspect > canvasAspect) {
+    // Window is wider than the canvas
+    scaleFactor = windowHeight / canvasHeight;
+  } else {
+    // Window is taller than the canvas
+    scaleFactor = windowWidth / canvasWidth;
+  }
 
-  // Dynamically update icon positions and sizes
-  icons.forEach((icon) => {
-    let centerX = width / 2;
-    let centerY = height / 2;
-    let radius = min(width, height) * 0.35;
-    let angle = (TWO_PI / 15) * icon.id;
-    icon.x = centerX + radius * cos(angle);
-    icon.y = centerY + radius * sin(angle);
-    icon.size = 100 * scaleFactor; // Adjust size dynamically
-  });
+  resizeCanvas(canvasWidth * scaleFactor, canvasHeight * scaleFactor);
+  setupIcons(); // Recalculate icon positions
 }
 
 // ICON SETUP
