@@ -1,4 +1,5 @@
 body {
+<<<<<<< HEAD
   margin: 0; /* Remove browser margins */
   display: flex;
   justify-content: center; /* Center horizontally */
@@ -9,4 +10,16 @@ body {
 
 canvas {
   display: block; /* Avoid unnecessary spacing */
+=======
+  margin: 0; /* Remove default browser margins */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Use full viewport height */
+  overflow: hidden; /* Hide overflow if the canvas is large */
+}
+
+canvas {
+  display: block; /* Avoid extra spacing */
+>>>>>>> 799159811e4fe281de4f9b03691ce24548491f9a
 }
