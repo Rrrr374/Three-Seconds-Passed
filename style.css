@@ -1,25 +1,92 @@
-body {
-<<<<<<< HEAD
-  margin: 0; /* Remove browser margins */
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full viewport height */
-  overflow: hidden; /* Prevent scrolling */
+/* Reset browser defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-canvas {
-  display: block; /* Avoid unnecessary spacing */
-=======
-  margin: 0; /* Remove default browser margins */
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Use full viewport height */
-  overflow: hidden; /* Hide overflow if the canvas is large */
+/* Set body and main element styles */
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Newsreader', serif; /* Ensure this matches your custom font */
+  background: #000; /* Black background for contrast */
+  color: #fff; /* Default text color */
+  overflow: hidden; /* Prevent scrollbars from appearing */
 }
 
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Canvas styling */
 canvas {
-  display: block; /* Avoid extra spacing */
->>>>>>> 799159811e4fe281de4f9b03691ce24548491f9a
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  border: none;
+}
+
+/* Back button */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 1); /* Full white on hover */
+}
+
+/* Polaroid icon in the center */
+.polaroid {
+  position: absolute;
+  width: 100px; /* Adjust as needed */
+  aspect-ratio: 1 / 1; /* Maintain aspect ratio */
+  cursor: pointer;
+}
+
+.polaroid:hover {
+  transform: scale(1.1); /* Enlarge slightly on hover */
+  transition: transform 0.2s ease;
+}
+
+/* Dimmed background overlay when text is active */
+.dim-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+  z-index: 1; /* Ensure it overlays the canvas */
+}
+
+/* Centered text styling */
+.centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%; /* Limit text width */
+  max-height: 80%; /* Limit text height */
+  font-size: 1.2rem; /* Adjust font size as needed */
+  text-align: center;
+  line-height: 1.6;
+  color: white;
+  z-index: 2; /* Ensure it is above the overlay */
 }

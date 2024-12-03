@@ -37,31 +37,17 @@ function preload() {
 
   for (let i = 1; i <= 15; i++) {
     photos.push(loadImage(`assets/photo${i}.PNG`));
-    highlights.push(loadImage(`assets/highlight${i}.PNG`));
+    highlights.push(loadImage(`assets/highlight${i}.png`));
     hotspots.push(loadImage(`assets/hotspot${i}.png`));
     iconImages.push(loadImage(`assets/icon${i}.png`));
   }
 }
 
 function setup() {
-  if (
-    backdrops.length < 3 ||
-    photos.length < 15 ||
-    highlights.length < 15 ||
-    hotspots.length < 15 ||
-    iconImages.length < 15
-  ) {
-    console.error("Not all assets are loaded. Stopping execution.");
-    noLoop();
-    return;
-  }
-
-  // Initialize the canvas with dynamic scaling
   scaleFactor = min(windowWidth / canvasWidth, windowHeight / canvasHeight);
   createCanvas(canvasWidth * scaleFactor, canvasHeight * scaleFactor);
 
   currentBackdrop = backdrops[0]; // Initialize currentBackdrop
-
   setupIcons(); // Initialize icons
 }
 
