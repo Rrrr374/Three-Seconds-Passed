@@ -52,15 +52,8 @@ function setup() {
 }
 
 function draw() {
-  // Ensure scaleFactor is valid before scaling
-  if (isNaN(scaleFactor) || scaleFactor <= 0) {
-    console.error("Invalid scaleFactor. Skipping draw loop.");
-    return;
-  }
+  scale(scaleFactor); // Apply proportional scaling to all elements
 
-  scale(scaleFactor); // Scale everything proportionally
-
-  // Render based on the current stage
   if (stage === "landing") {
     drawLandingPage();
   } else if (stage === "secondPage") {
@@ -69,9 +62,8 @@ function draw() {
     drawThirdPage();
   }
 
-  // Draw back button last if not on the landing page
   if (stage !== "landing") {
-    drawBackButton();
+    drawBackButton(); // Ensure the back button is always visible
   }
 }
 
