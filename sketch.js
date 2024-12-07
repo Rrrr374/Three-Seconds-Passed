@@ -252,7 +252,9 @@ function mousePressed() {
   let scaledMouseX = mouseX / scaleFactor;
   let scaledMouseY = mouseY / scaleFactor;
 
+
 function goBack() {
+  console.log("activate goback, current page: " + stage);
   if (stage === "thirdPage") {
     stage = "secondPage"; // Go back to the second page
   } else if (stage === "secondPage") {
@@ -269,6 +271,7 @@ function goBack() {
     scaledMouseY > 20 &&
     scaledMouseY < 20 + backButtonSize
   ) {
+    console.log("will go back: " + stage);
     goBack(); // Call the goBack function
     return;
   }
