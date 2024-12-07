@@ -24,7 +24,7 @@ canvas {
   max-width: 100%; /* Ensure canvas fits the width of the screen */
   max-height: 100%; /* Ensure canvas fits the height of the screen */
   object-fit: contain; /* Maintain aspect ratio */
-  margin: auto; /* Center the canvas */
+  margin: 0px; /* Center the canvas */
 }
 
 /* Text Styling */

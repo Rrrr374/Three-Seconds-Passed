@@ -79,7 +79,7 @@ function windowResized() {
     scaleFactor = windowWidth / canvasWidth;
   }
 
-  resizeCanvas(canvasWidth * scaleFactor, canvasHeight * scaleFactor);
+  //resizeCanvas(canvasWidth * scaleFactor, canvasHeight * scaleFactor);
   setupIcons(); // Recalculate icon positions
 }
 
