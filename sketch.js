@@ -46,9 +46,7 @@ function preload() {
 
 function setup() {
   scaleFactor = min(windowWidth / canvasWidth, windowHeight / canvasHeight);
-  console.log("canvas width： " + canvasWidth + " height: " + canvasHeight);
-  console.log("p5 canvas width: " + canvasWidth * scaleFactor + "  height: " + canvasHeight * scaleFactor);
-  createCanvas(canvasWidth, canvasHeight);
+  createCanvas(canvasWidth * scaleFactor, canvasHeight * scaleFactor);
 
   currentBackdrop = backdrops[0]; // Initialize currentBackdrop
   setupIcons(); // Initialize icons
@@ -81,7 +79,7 @@ function windowResized() {
     scaleFactor = windowWidth / canvasWidth;
   }
 
-  //resizeCanvas(canvasWidth * scaleFactor, canvasHeight * scaleFactor);
+  resizeCanvas(canvasWidth * scaleFactor, canvasHeight * scaleFactor);
   setupIcons(); // Recalculate icon positions
 }
 
@@ -252,9 +250,7 @@ function mousePressed() {
   let scaledMouseX = mouseX / scaleFactor;
   let scaledMouseY = mouseY / scaleFactor;
 
-
 function goBack() {
-  console.log("activate goback, current page: " + stage);
   if (stage === "thirdPage") {
     stage = "secondPage"; // Go back to the second page
   } else if (stage === "secondPage") {
@@ -271,7 +267,6 @@ function goBack() {
     scaledMouseY > 20 &&
     scaledMouseY < 20 + backButtonSize
   ) {
-    console.log("will go back: " + stage);
     goBack(); // Call the goBack function
     return;
   }
