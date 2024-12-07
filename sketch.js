@@ -46,6 +46,8 @@ function preload() {
 
 function setup() {
   scaleFactor = min(windowWidth / canvasWidth, windowHeight / canvasHeight);
+  console.log("canvas width： " + canvasWidth + " height: " + canvasHeight);
+  console.log("p5 canvas width: " + canvasWidth * scaleFactor + "  height: " + canvasHeight * scaleFactor);
   createCanvas(canvasWidth * scaleFactor, canvasHeight * scaleFactor);
 
   currentBackdrop = backdrops[0]; // Initialize currentBackdrop
